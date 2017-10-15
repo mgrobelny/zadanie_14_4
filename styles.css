@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Mada');
+
+body {
+	text-align: center;
+	background-color: darkgreen;
+	color: white;
+}
+
+div {
+	font-size: 20px;
+	font-family: 'Mada', sans-serif;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 50px;
+	font-family: 'Mada', sans-serif;
+	line-height: 20px;
+	margin-bottom: 50px;
+}
+
+div.line {
+	height: auto;
+	font-size: 30px;
+}
+
+button {
+	height: 50px;
+	width: 100px;
+	margin: 10px;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border: 2px solid white;
+}
+
+button:hover {
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
