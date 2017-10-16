@@ -7,13 +7,32 @@ var Counter = React.createClass({
     },
 
     // Metody cyklu życia - początek
-    
-    componentDidMount: function () {
-        console.log( 'Testowy tekst');
+
+    getDefaultProps: function () {
+        console.log('getDefaultProps - komponent otrzymuje domyślne wartości propsów');
     },
 
-    componentWillReceiveProps: function() {
-        console.log('Testowy tekst');
+    componentWillMount: function() {
+        console.log('componentWillMount - metoda wywoływana tuż przed wyrenderowaniem komponentu');
+    },
+
+    componentDidMount: function() {
+        console.log('componentDidMount - komponent jest już umieszczony na stronie, w drzewie DOM');
+    },
+
+    // metody pojawiają się, gdy następuje naciśnięcie przycisku (konieczność ponownego renderowania komponentu)
+
+    shouldComponentUpdate: function() {
+        console.log('shouldComponentUpdate - sprawdzenie, czy faktycznie trzeba jeszcze raz wyrenderować komponent (musi być wartość boolean: true)');
+        return true;
+    },
+
+    componentWillUpdate: function() {
+        console.log('componentWillUpdate - pojawia się, jeżeli poprzednia metoda wykazała wartość true');
+    },
+
+    componentDidUpdate: function() {
+        console.log('componentDidUpdate - pojawia się zaraz po przerysowaniu komponentu');
     },
 
     // Metody cyklu życia - koniec
@@ -39,8 +58,8 @@ var Counter = React.createClass({
     render: function() {
         return React.createElement('div', {},
             React.createElement('p', {}, 'Wynik: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, '+ '),
-            React.createElement('button', {onClick: this.decrement}, '- '),
+            React.createElement('button', {onClick: this.increment}, '+ 1'),
+            React.createElement('button', {onClick: this.decrement}, '- 1'),
             React.createElement('button', {onClick: this.reset}, 'Reset')
         );
     }
